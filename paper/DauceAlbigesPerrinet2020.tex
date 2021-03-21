@@ -1,0 +1,218 @@
+%!TeX TS-program = pdflatex
+%!TeX encoding = UTF-8 Unicode
+%!TeX spellcheck = en-US
+%!BIB TS-program = bibtex
+% -*- coding: UTF-8; -*-
+% vim: set fenc=utf-8
+%
+% % % % % % % % % % % % % % % % % % % % % % % %
+\documentclass[10pt,a4paper]{article}
+% \usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+\usepackage[top=0.85in,left=1.5in,footskip=0.75in]{geometry}
+
+% amsmath and amssymb packages, useful for mathematical formulas and symbols
+\usepackage{amsmath,amssymb}
+
+% Use adjustwidth environment to exceed column width (see example table in text)
+% \usepackage{changepage}
+
+% Use Unicode characters when possible
+\usepackage[utf8x]{inputenc}
+
+% textcomp package and marvosym package for additional characters
+\usepackage{textcomp,marvosym}
+
+% cite package, to clean up citations in the main text. Do not remove.
+% \usepackage{cite}
+
+% Use nameref to cite supporting information files (see Supporting Information section for more info)
+\usepackage{nameref}
+
+% line numbers
+\usepackage[right]{lineno}
+
+% ligatures disabled
+\usepackage{microtype}
+\DisableLigatures[f]{encoding = *, family = * }
+
+% color can be used to apply background shading to table cells only
+\usepackage[table]{xcolor}
+
+% array package and thick rules for tables
+\usepackage{array}
+
+\usepackage{csquotes}
+\usepackage{bm}
+
+% % create "+" rule type for thick vertical lines
+% \newcolumntype{+}{!{\vrule width 2pt}}
+%
+% % create \thickcline for thick horizontal lines of variable length
+% \newlength\savedwidth
+% \newcommand\thickcline[1]{%
+%   \noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+%   \cline{#1}%
+%   \noalign{\vskip\arrayrulewidth}%
+%   \noalign{\global\arrayrulewidth\savedwidth}%
+% }
+%
+% % \thickhline command for thick horizontal lines that span the table
+% \newcommand\thickhline{\noalign{\global\savedwidth\arrayrulewidth\global\arrayrulewidth 2pt}%
+% \hline
+% \noalign{\global\arrayrulewidth\savedwidth}}
+%
+%
+% % Remove comment for double spacing
+% %\usepackage{setspace}
+% %\doublespacing
+%
+% % Text layout
+% \raggedright
+% \setlength{\parindent}{0.5cm}
+% \textwidth 5.25in
+% \textheight 8.75in
+
+% Bold the 'Figure #' in the caption and separate it from the title/caption with a period
+% Captions will be left justified
+\usepackage[labelfont=bf,labelsep=period,%justification=raggedright,aboveskip=1pt,
+singlelinecheck=off]{caption}
+\renewcommand{\figurename}{Figure}
+
+\usepackage[comma,sort&compress,round]{natbib} %
+% \bibliographystyle{alpha}
+\renewcommand{\cite}[1]{\citep{#1}}
+% \newcommand{\citet}[1]{\cite{#1}}
+
+% Remove brackets from numbering in List of References
+%\makeatletter
+%\renewcommand{\@biblabel}[1]{\quad#1.}
+%\makeatother
+
+\usepackage{lastpage,fancyhdr,graphicx}
+\graphicspath{{../figures/}}%
+%\pagestyle{myheadings}
+\pagestyle{fancy}
+\fancyhf{}
+%\setlength{\headheight}{27.023pt}
+%\lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
+\rfoot{\thepage/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+% \renewcommand{\footrule}{\hrule height 2pt \vspace*{2mm}}
+% \fancyheadoffset[L]{2.25in}
+% \fancyfootoffset[L]{2.25in}
+\lfoot{\today}
+
+
+\usepackage{tikz}
+\usetikzlibrary{external}
+\tikzexternalize%[prefix=tikz/]
+
+\usepackage{siunitx}
+%\renewcommand{\cite}{\citep}%
+\newcommand{\ms}{\si{\milli\second}}%
+\newcommand{\m}{\si{\meter}}%
+\newcommand{\s}{\si{\second}}%
+
+\newcommand{\FIX}{\texttt{FIX}}%
+\newcommand{\DIS}{\texttt{DIS}}%
+\newcommand{\SAC}{\texttt{SAC}}%
+\newcommand{\ANS}{\texttt{ANS}}%
+\newcommand{\A}{\textbf{(A)~}}%
+\newcommand{\B}{\textbf{(B)~}}%
+\newcommand{\C}{\textbf{(C)~}}%
+\newcommand{\D}{\textbf{(D)~}}%
+\newcommand{\E}{\textbf{(E)~}}%
+\newcommand{\F}{\textbf{(F)~}}%
+
+
+%============ hyperref ===================
+\usepackage[pdfborder={0 0 0}]{hyperref}%
+% \vspace{0.2in}
+% !TEX root = DauceAlbigesPerrinet2020.tex
+%!TeX TS-program = pdflatex
+%!TeX encoding = UTF-8 Unicode
+%!TeX spellcheck = en-US
+%!BIB TS-program = bibtex
+% -*- coding: UTF-8; -*-
+% vim: set fenc=utf-8
+%: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%: METADATA
+%: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\AuthorPA}{Pierre Albiges}
+\newcommand{\AuthorED}{Emmanuel Dauc\'e}%
+\newcommand{\AuthorLP}{Laurent U Perrinet}%
+\newcommand{\Address}{Institut de Neurosciences de la Timone, CNRS/Aix-Marseille Universit\'e, France}%
+\newcommand{\WebsiteLP}{https://laurentperrinet.github.io/}%
+\newcommand{\EmailLP}{Laurent.Perrinet@univ-amu.fr}%
+\newcommand{\orcidLP}{0000-0002-9536-010X}%
+\newcommand{\orcidED}{0000-0001-6596-8168}%
+\newcommand{\Keywords}{Object detection \and Active Inference \and Visual search \and Visuomotor control \and Deep Learning}
+\newcommand{\Title}{
+A dual foveal-peripheral visual processing model implements efficient saccade selection
+}
+\newcommand{\Acknowledgments}{ TODO:  FRM ....... RIck + Karl + Laurent Madelain  - }
+% \newcommand{\Abstract}{
+% Visual search involves a dual task of localizing and categorizing an object in the visual field of view. We develop a visuomotor model that implements visual search as a focal accuracy-seeking policy, with the target position and category drawn independently from
+% a common generative process.
+% We use this principle to train a deep neural network, composed of two pathways, namely the ``What'' and the ``Where'' pathways. Consistently with the anatomical separation between the ventral versus dorsal pathways,
+% those networks respectively infer what to see and where to look.
+% The ``What'' network is a classical deep learning classifier, that only processes a small region around the center of fixation, providing a ``foveal'' accuracy. In contrast, the `Where'' network processes the full visual field in a biomimetic fashion, using a log-polar retinotopic encoding, which is preserved up to the action selection level. The foveal accuracy is used as a monitoring signal to train the `Where'' network for it is expected to drive the fovea toward the target in order to increase the central recognition accuracy. After training, the comparison of both networks accuracies amounts to either select a saccade or to keep the eye focused at the center, to identify the target. We test this on a simple task of finding a digit in a large, cluttered image.  Our simulation results demonstrate the effectiveness of this approach, increasing by one order of magnitude the radius of the visual field toward which the agent can detect and recognize a target, either through a single or multiple saccades. Importantly, our log-polar treatment of the visual information implements the strong compression rate performed at the sensory level, providing ways to implement visual search in a sub-linear fashion, in contrast with mainstream computer vision. }
+\newcommand{\Precis}{
+%#Vision is concentrated at the fovea. This #computational model implements efficient #saccade selection. @ARVOJOV @laurentperrinet #Neuroscience
+
+%Separating visual processing into a What and a Where pathways provides a strategy to model visual search. We developed a deep-learning-based computational model in which the comparison of predicted accuracies from both pathways allows to implement efficient saccade selection.
+}
+% \newcommand{\AuthorSummary}{
+% A visual search task consists in extracting a scarce and specific visual information (the ``target'') from a large and cluttered visual display. In computer vision, this task is usually implemented by scanning all different possible target identities in parallel at all possible spatial positions, hence with strong computational load. The human visual system employs a different strategy, combining a foveated sensor with the capacity to rapidly move the center of fixation using saccades. Then, visual processing is separated in two specialized pathways. First, the ``where'' pathway conveys information about target position in peripheral space, independently of its category. On the other hand, the ``what'' pathway conveys information about the category of the target (independently of its position). This object recognition pathway is shown here to have an essential role, providing an ``accuracy drive'' that serves to guide the eye toward peripheral objects to increase the peripheral accuracy, much like in the ``actor/critic'' framework. Put together, all those principles are shown to provide ways toward both adaptive and resource-efficient visual processing systems.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% END MACROS SECTION
+\begin{document}
+\linenumbers
+
+% Title must be 250 characters or less.
+\begin{flushleft}
+{\Large
+\textbf\newline{
+\Title
+} % Please use "sentence case" for title and headings (capitalize only the first word in a title (or heading), the first word in a subtitle (or subheading), and any proper nouns).
+}
+\newline
+% Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
+\\
+\AuthorED, %\textsuperscript{1},
+\AuthorPA, %\textsuperscript{2},
+\AuthorLP\textsuperscript{*}%\textsuperscript{2,*}
+\\
+\bigskip
+\Address
+% \textbf{1} \AddressED
+% \\
+% \textbf{2} \AddressLP
+% \\
+\bigskip
+
+* \EmailLP
+
+\end{flushleft}
+% Please keep the abstract below 300 words
+\section*{Abstract}
+% \Abstract
+% Manu : j'ai fusionné les 2 abstracts
+%A visual search task consists in extracting a scarce and specific visual information (the ``target'') from a large and cluttered visual display. In computer vision, this task is usually implemented by scanning all different possible target identities in parallel at all possible spatial positions, hence with strong computational load. The human visual system employs a different strategy, combining a foveated sensor with the capacity to rapidly move the center of fixation using saccades.
+We develop a visuomotor model that implements visual search as a focal accuracy-seeking policy, with the target's position and category drawn independently from a common generative process.  Consistently with the anatomical separation between the ventral versus dorsal pathways, the model is composed of two pathways, that respectively infer what to see and where to look. The ``What'' network is a classical deep learning classifier, that only processes a small region around the center of fixation, providing a ``foveal'' accuracy. In contrast, the ``Where'' network processes the full visual field in a biomimetic fashion, using a log-polar retinotopic encoding, which is preserved up to the action selection level. In our model, the foveal accuracy is used as a monitoring signal to train the ``Where'' network, much like in the ``actor/critic'' framework. After training, the ``Where'' network provides an ``accuracy map'' that serves to guide the eye toward peripheral objects. Finally, the comparison of both networks accuracies amounts to either select a saccade or to keep the eye focused at the center to identify the target. We test this setup on a simple task of finding a digit in a large, cluttered image.  Our simulation results demonstrate the effectiveness of this approach, increasing by one order of magnitude the radius of the visual field toward which the agent can detect and recognize a target, either through a single saccade or with multiple ones. Importantly, our log-polar treatment of the visual information exploits the strong compression rate performed at the sensory level, providing ways to implement visual search in a sub-linear fashion, in contrast with mainstream computer vision.
+
+
+\input{intro}
+
+\input{results}
+
+\input{discussion}
+
+\input{methods}
+
+\nolinenumbers
+
+\bibliographystyle{plainnat}
+\bibliography{Bibliography}
+
+\end{document}
